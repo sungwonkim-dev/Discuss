@@ -11,5 +11,5 @@
 <body>
 <h2>Hello ${name}!</h2>
 <h5>eeeee</h5>
-</body>
+</body><#include "*/common/footer.ftl">
 </html>
