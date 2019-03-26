@@ -12,5 +12,5 @@
             <H5>toy-project</H5>
             <H3>sungwon.kim</H3>
         </div>
-    </body><#include "*/common/footer.ftl">
+    </body>
 </html>
