@@ -1,7 +1,14 @@
 package com.haja.discuss.entity;
 
+import com.haja.discuss.DiscussContants;
+import org.springframework.util.MultiValueMap;
+
 import javax.persistence.*;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "user")
@@ -13,11 +20,23 @@ public class User {
 
     private String uid;
     private String password;
+    private String phone;
+    private String address;
     private String email;
     private String role;
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date created;
+
+    public User(String uid, String password, String phone, String address,  String email){
+        this.uid = uid;
+        this.password = password;
+        this.phone = phone;
+        this.address = address;
+        this.email = email;
+        this.created = now();
+        this.role = DiscussContants.ROLE_USER;
+    }
 
     public Long getId() {
         return id;
@@ -43,6 +62,22 @@ public class User {
         this.password = password;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -66,10 +101,26 @@ public class User {
     public void setCreated(Date created) {
         this.created = created;
     }
+
+    public Timestamp now(){
+        SimpleDateFormat formatter = new SimpleDateFormat ("yyyy-MM-dd hh:mm:ss");
+        Calendar cal = Calendar.getInstance();
+        String today = formatter.format(cal.getTime());
+        Timestamp ts = Timestamp.valueOf(today);
+        return ts.valueOf(today);
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", uid='" + uid + '\'' +
+                ", password='" + password + '\'' +
+                ", phone='" + phone + '\'' +
+                ", address='" + address + '\'' +
+                ", email='" + email + '\'' +
+                ", role='" + role + '\'' +
+                ", created=" + created +
+                '}';
+    }
 }
-
-
-
-// 인클루드와 포워드의 차이점
-// 인클루드 : 페이지 내에 페이지 호출
-// 포워드   : 이전 페이지에서 세션 유지가 불필요할 경우 value를 다음 페이지로 넘기며 호출, 보안 유지.

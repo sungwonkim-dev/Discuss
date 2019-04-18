@@ -28,17 +28,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/").permitAll()
+                .antMatchers("/home").permitAll()
                 .antMatchers("/login").permitAll()
-                .antMatchers("/admin/management/user").hasAnyAuthority("ADMIN")
-                .antMatchers("/admin/management/worry").hasAnyAuthority("ADMIN")
-                .antMatchers("/mypage/answer").hasAnyAuthority("USER", "ADMIN")
-                .antMatchers("/mypage/favorites").hasAnyAuthority("USER", "ADMIN")
-                .antMatchers("/mypage/info").hasAnyAuthority("USER", "ADMIN")
-                .antMatchers("/mypage/worry").hasAnyAuthority("USER", "ADMIN")
+                .antMatchers("/create-account").permitAll()
+                .antMatchers("/save-account").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
@@ -62,6 +59,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
         web
                 .ignoring()
-                .antMatchers("/resources/**", "/css/**", "/js/**");
+                .antMatchers("/static/js/**","/resources/**", "/css/**", "/js/**","/static/**","/public/**");
     }
 }

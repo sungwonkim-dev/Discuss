@@ -1,5 +1,6 @@
 package com.haja.discuss.web.login.service;
 
+import com.haja.discuss.DiscussRuntimeException;
 import com.haja.discuss.entity.User;
 import com.haja.discuss.web.login.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,11 +27,21 @@ public class UserService implements UserDetailsService {
             List<GrantedAuthority> list = new ArrayList<GrantedAuthority>();
             list.add(new SimpleGrantedAuthority(user.getRole()));
             UserDetails userDetails = new org.springframework.security.core.userdetails.User(username, user.getPassword(), list);
-            System.out.println(userDetails.getUsername());
-            System.out.println(userDetails.getPassword());
             return userDetails;
         } catch (Exception e) {
-            throw new UsernameNotFoundException("uid is not exist.");
+            throw e;
+        }
+    }
+
+    public void createUserAccount(User user) throws Exception {
+        try {
+            if (userRepository.existsByUid(user.getUid()))
+                throw new DiscussRuntimeException("your uid is already exist. Please enter another uid");
+            User newUser = userRepository.save(user);
+            if (newUser == null || newUser.getId() <= 0)
+                throw new DiscussRuntimeException("Unknown ERROR. Please try again in a few minutes.");
+        } catch (Exception e) {
+            throw e;
         }
     }
 }

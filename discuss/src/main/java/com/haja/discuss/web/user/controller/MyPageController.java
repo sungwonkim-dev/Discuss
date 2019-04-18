@@ -1,13 +1,12 @@
 package com.haja.discuss.web.user.controller;
 
+import com.haja.discuss.web.login.controller.CommonController;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping(value = "/mypage")
-public class MyPageController {
+public class MyPageController extends CommonController {
 
     @RequestMapping("/info")
     public String requestMyInfoPage() {

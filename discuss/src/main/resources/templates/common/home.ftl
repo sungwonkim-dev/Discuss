@@ -6,9 +6,9 @@
 
 
 </head>
-<#include "*/common/header.ftl">
-<#include "*/common/login.ftl">
+<#include "*/header.ftl">
+<#include "*/login.ftl">
 <body>
 i'm home
-</body><#include "*/common/footer.ftl">
+</body><#include "*/footer.ftl">
 </html>
