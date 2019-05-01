@@ -12,11 +12,12 @@ final public class DiscussContants {
     public final static String VIEW_DISCUSS_DEBATE_PAGE     = "/discuss/debate";
     public final static String VIEW_DISCUSS_FREE_PAGE       = "/discuss/free";
     public final static String VIEW_DISCUSS_RANK_PAGE       = "/discuss/rank";
+    public final static String VIEW_DISCUSS_WRITE_PAGE       = "/discuss/write";
 
     public final static String ROLE_USER                    = "USER";
 
     public final static int    TRUE                         = 1;
     public final static int    FALSE                         = 0;
 
-
+    public final static int    FIXED_OFFSET                         = 10;
 }

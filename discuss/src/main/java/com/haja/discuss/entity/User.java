@@ -1,6 +1,7 @@
 package com.haja.discuss.entity;
 
 import com.haja.discuss.DiscussContants;
+import com.haja.discuss.util.DateUtils;
 import org.springframework.util.MultiValueMap;
 
 import javax.persistence.*;
@@ -28,13 +29,14 @@ public class User {
     @Temporal(TemporalType.TIMESTAMP)
     private Date created;
 
+    public User(){}
     public User(String uid, String password, String phone, String address,  String email){
         this.uid = uid;
         this.password = password;
         this.phone = phone;
         this.address = address;
         this.email = email;
-        this.created = now();
+        this.created = DateUtils.now();
         this.role = DiscussContants.ROLE_USER;
     }
 
@@ -102,13 +104,6 @@ public class User {
         this.created = created;
     }
 
-    public Timestamp now(){
-        SimpleDateFormat formatter = new SimpleDateFormat ("yyyy-MM-dd hh:mm:ss");
-        Calendar cal = Calendar.getInstance();
-        String today = formatter.format(cal.getTime());
-        Timestamp ts = Timestamp.valueOf(today);
-        return ts.valueOf(today);
-    }
 
     @Override
     public String toString() {

@@ -96,11 +96,13 @@
             <artifactId>bootstrap</artifactId>
             <version>4.2.1</version>
         </dependency>
+        <!-- JSON -->
         <dependency>
-            <groupId>com.vaadin.external.google</groupId>
-            <artifactId>android-json</artifactId>
-            <version>0.0.20131108.vaadin1</version>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20180813</version>
         </dependency>
+
     </dependencies>
 
     <build>

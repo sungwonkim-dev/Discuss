@@ -11,6 +11,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+import static com.haja.discuss.DiscussContants.*;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
@@ -36,6 +38,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/login").permitAll()
                 .antMatchers("/create-account").permitAll()
                 .antMatchers("/save-account").permitAll()
+                .antMatchers("/discuss/write").permitAll()
+                .antMatchers("/test").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
@@ -59,6 +63,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
         web
                 .ignoring()
-                .antMatchers("/static/js/**","/resources/**", "/css/**", "/js/**","/static/**","/public/**");
+                .antMatchers("/static/js/**","/resources/**", "/css/**", "/js/**","/static/**","/public/**","/smarteditor/**");
     }
 }
