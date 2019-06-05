@@ -9,18 +9,22 @@ public class Discussion {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long did;
+    private Long id;
 
-    private String uid;
     private String writer;
+    private String title;
     private String content;
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date created;
 
-    public Discussion(){}
-    public Discussion(String uid, String writer, String content, Date created) {
-        this.uid = uid;
+    public Discussion() {
+    }
+
+    public Discussion(Long id, String writer, String title, String content, Date created) {
+        this.id = id;
         this.writer = writer;
+        this.title = title;
         this.content = content;
         this.created = created;
     }
@@ -31,14 +35,6 @@ public class Discussion {
 
     public void setDid(Long did) {
         this.did = did;
-    }
-
-    public String getWriter() {
-        return writer;
-    }
-
-    public void setWriter(String writer) {
-        this.writer = writer;
     }
 
     public String getContent() {
@@ -57,20 +53,29 @@ public class Discussion {
         this.created = created;
     }
 
-    public String getUid() {
-        return uid;
+    public String getWriter() {
+        return writer;
     }
 
-    public void setUid(String uid) {
-        this.uid = uid;
+    public void setWriter(String writer) {
+        this.writer = writer;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     @Override
     public String toString() {
         return "Discussion{" +
                 "did=" + did +
-                ", uid='" + uid + '\'' +
+                ", id=" + id +
                 ", writer='" + writer + '\'' +
+                ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 ", created=" + created +
                 '}';
