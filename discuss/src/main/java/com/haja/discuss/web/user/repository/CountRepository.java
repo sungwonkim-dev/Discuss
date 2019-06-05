@@ -1,8 +1,9 @@
 package com.haja.discuss.web.user.repository;
 
-import com.haja.discuss.entity.Discussion;
+import com.haja.discuss.entity.Count;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface DiscussRepository extends JpaRepository<Discussion,Long> {
-    Discussion findByDid(Long did);
+public interface CountRepository extends JpaRepository<Count, Long> {
+    Count findByDid(Long id);
+
 }

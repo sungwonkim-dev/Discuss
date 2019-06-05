@@ -1,8 +1,10 @@
 package com.haja.discuss.web.user.repository;
 
-import com.haja.discuss.entity.Count;
+import com.haja.discuss.entity.Interested;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface CountRepository extends JpaRepository<Count, Long> {
-    Count findByDid(Long did);
+import java.util.List;
+
+public interface InterestedRepository extends JpaRepository<Interested, Long> {
+    List<Interested> findAllByUid(Long uid);
 }
