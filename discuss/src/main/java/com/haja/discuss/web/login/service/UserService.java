@@ -2,6 +2,7 @@ package com.haja.discuss.web.login.service;
 
 import com.haja.discuss.DiscussRuntimeException;
 import com.haja.discuss.entity.User;
+import com.haja.discuss.util.DateUtils;
 import com.haja.discuss.web.login.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -35,6 +36,9 @@ public class UserService implements UserDetailsService {
 
     public void createUserAccount(User user) throws Exception {
         try {
+            user.setCreated(DateUtils.now());
+            user.setRole("USER");
+
             if (userRepository.existsByUid(user.getUid()))
                 throw new DiscussRuntimeException("your uid is already exist. Please enter another uid");
             User newUser = userRepository.save(user);
@@ -45,11 +49,11 @@ public class UserService implements UserDetailsService {
         }
     }
 
-    public User findByUid(String uid){
+    public User findByUid(String uid) {
         return userRepository.findByUid(uid);
     }
 
-    public Long findIdByUid(String uid){
+    public Long findIdByUid(String uid) {
         return userRepository.findIdByUid(uid);
     }
 }

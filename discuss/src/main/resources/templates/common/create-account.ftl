@@ -17,32 +17,32 @@
             <tbody>
             <tr>
                 <th scope="row">아이디</th>
-                <td><input type="text" id="uid" name="uid""></td>
+                <td><input type="text" id="uid" name="uid" required="required"></td>
             </tr>
             <tr>
                 <th scope="row">비밀번호</th>
-                <td><input type="password" size="12" id="password" name="password"></td>
+                <td><input type="password" size="12" id="password" name="password" required="required"></td>
             </tr>
             <tr>
                 <th scope="row">이메일</th>
-                <td><input type="email" size="30" id="email" name="email"></td>
+                <td><input type="email" size="30" id="email" name="email" required="required"></td>
             </tr>
             <tr>
                 <th scope="row">주소</th>
-                <td><input type="email" size="30" id="address" name="address"></td>
+                <td><input type="email" size="30" id="address" name="address" required="required"></td>
             </tr>
             <tr>
                 <th scope="row">연락처</th>
-                <td><input type="text" size="11" id="phone" name="phone"></td>
+                <td><input type="text" size="11" id="phone" name="phone" required="required"></td>
             </tr>
             </tbody>
-        </table>
-        <table>
-            <ul id="btns">
-                <li><a class="custom-btn" id="clear_btn">초기화</a></li>
-                <li><a class="custom-btn" id="go_home_btn">취소</a></li>
-                <li><a class="custom-btn" id="create_account_btn" onclick="document.getElementById('create_account-form').submit()">가입</a></li>
-            </ul>
+            <table>
+                <ul id="btns">
+                    <li><a class="custom-btn" id="clear_btn">초기화</a></li>
+                    <li><a class="custom-btn" id="go_home_btn">취소</a></li>
+                    <li><a class="custom-btn" id="create_account_btn">가입</a></li>
+                </ul>
+            </table>
         </table>
     </div>
 </form>

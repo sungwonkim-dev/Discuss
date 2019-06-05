@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
     $("#clear_btn").click(function () {
         $(':input', '#create_account-form')
@@ -9,47 +9,26 @@ $(document).ready(function() {
     });
 
     $("#go_home_btn").click(function () {
-        window.location.href("/home");
+        location.href = '/discuss';
     });
 
 
+    $("#create_account_btn").click(function () {
 
-    $("#create_account-form").submit(function(e) {
+            var id = $("#uid").val();
+            var pw = $("#password").val();
+            var addr = $("#address").val();
+            var email = $("#email").val();
+            var phone = $("#phone").val();
 
-        e.preventDefault();
-
-        var form = $(this);
-        var url = form.attr('action');
-
-        $.ajax({
-            type: "POST",
-            url: url,
-            data: form.serialize(),
-            success: function()
-            {
-                alert("회원가입이 완료되었습니다. 메인 페이지로 이동합니다.");
-                window.location.href("/home");
+            if (id.length > 1 && pw.length > 1 && addr.length > 1 && email.length > 1 && phone.length > 1) {
+                $("#create_account-form").submit();
+                alert("회원 가입이 완료됐습니다. 홈페이지로 이동합니다.");
+                location.href = '/discuss';
+            } else {
+                alert("전체 항목을 입력해주세요.");
             }
-        });
+        }
+    );
 
-
-    });
-
-    // $("#create_account_btn").click(function () {
-    //     var formData = $("#create_account-form").serialize();
-    //     $.ajax({
-    //         type: "POST",
-    //         url: "/save-account",
-    //         data: formData,
-    //         cache: false,
-    //         processData: false,
-    //         success: function () {
-    //             alert("계정 생성이 완료되었습니다. 로그인 페이지로 이동합니다");
-    //             //window.location.href("/login");
-    //         },
-    //         error: function (data) {
-    //             alert(data);
-    //         }
-    //     })
-    // });
 });
