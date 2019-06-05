@@ -35,7 +35,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/login").permitAll()
                 .antMatchers("/create-account").permitAll()
 
-                .antMatchers("/discuss").authenticated()
+                .antMatchers("/discuss").permitAll()
                 .antMatchers("/discuss/write").authenticated()
                 .antMatchers("/discuss/debate").authenticated()
                 .antMatchers("/discuss/detail").authenticated()
