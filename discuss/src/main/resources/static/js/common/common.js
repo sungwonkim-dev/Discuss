@@ -1,3 +1,11 @@
+$(document).ready(function () {
+    $('.move-page-btn').click(function () {
+        alert($(this).attr('id'));
+        $("#detail-frm input[name=did]").val($(this).attr('id'));
+        $("#detail-frm").submit();
+    });
+});
+
 CommonUtil = {
     formatBytes: function (byteSize) {
         var KB = 1024;
@@ -31,7 +39,6 @@ CommonUtil = {
     },
 
     writePagination: function (canvas, total, pageNo, fetchCount) {
-        alert("라이트");
 
         total -= 0;
         pageNo -= 0;

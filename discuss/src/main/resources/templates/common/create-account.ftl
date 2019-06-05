@@ -5,8 +5,8 @@
     <title>Hello!</title>
     <script  src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
     <link rel="stylesheet" href="/webjars/bootstrap/4.2.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/create-info.css">
-    <script src="/js/create-account.js"></script>
+    <link rel="stylesheet" href="/css/user/create-info.css">
+    <script src="/js/user/create-account.js"></script>
 </head>
 <body>
 <h5><#if msg??>${msg}</#if></h5>

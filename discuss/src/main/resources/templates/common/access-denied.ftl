@@ -2,14 +2,13 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Hello!</title>
+        <title>access-denied</title>
 
 
     </head>
     <body>
         <div>
-            <H5>Discuss</H5>
-            <H3>sungwon.kim</H3>
+            <H5><#if response??>${response}</#if></H5>
         </div>
     </body>
 </html>

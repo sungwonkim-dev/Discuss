@@ -7,7 +7,6 @@
 
 </head>
 <#include "*/header.ftl">
-<#include "*/login.ftl">
 <body>
 i'm home
 </body><#include "*/footer.ftl">

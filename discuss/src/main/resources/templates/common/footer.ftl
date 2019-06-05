@@ -8,7 +8,7 @@
     </head>
     <body>
         <div>
-            <H5>toy-project</H5>
+            <H5>Discuss</H5>
             <H3>sungwon.kim</H3>
         </div>
     </body>

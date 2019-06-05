@@ -1,0 +1,18 @@
+.write-center-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 80vh;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 701px;
+    float: none;
+}
+
+#title{
+    width: 700px;
+    height: 30px;
+    align-content: center;
+}

@@ -27,7 +27,7 @@ $(document).ready(function() {
             data: form.serialize(),
             success: function()
             {
-                alert("회원가입이 완료되었습니다. 로그인 페이지로 이동합니다.");
+                alert("회원가입이 완료되었습니다. 메인 페이지로 이동합니다.");
                 window.location.href("/home");
             }
         });

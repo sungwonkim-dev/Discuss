@@ -29,10 +29,9 @@ $(document).ready(function () {
                 url: url,
                 data: form.serialize(),
                 success: function (data) {
-                    if(data=="0"){
+                    if (data == "0") {
                         alert("접속자가 많아 연결이 불안정합니다. 잠시 후 다시 시도해주세요.");
-                    }
-                    else{
+                    } else {
                         alert("고민이 등록되었습니다.");
                         $("#detail-frm input[name=did]").val(data);
                         $("#detail-frm").submit();
