@@ -44,5 +44,13 @@ public class UserService implements UserDetailsService {
             throw e;
         }
     }
+
+    public User findByUid(String uid){
+        return userRepository.findByUid(uid);
+    }
+
+    public Long findIdByUid(String uid){
+        return userRepository.findIdByUid(uid);
+    }
 }
 
