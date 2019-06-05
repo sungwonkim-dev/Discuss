@@ -11,8 +11,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-import static com.haja.discuss.DiscussContants.*;
-
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
@@ -34,18 +32,24 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/home").permitAll()
                 .antMatchers("/login").permitAll()
                 .antMatchers("/create-account").permitAll()
+
+                .antMatchers("/discuss").authenticated()
+                .antMatchers("/discuss/write").authenticated()
+                .antMatchers("/discuss/debate").authenticated()
+                .antMatchers("/discuss/detail").authenticated()
+                .antMatchers("/discuss/interested").authenticated()
+                .antMatchers("/discuss/**").authenticated()
+
+                .antMatchers("/discuss/save-content").authenticated()
                 .antMatchers("/save-account").permitAll()
-                .antMatchers("/discuss/write").permitAll()
-                .antMatchers("/test").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login").failureUrl("/login?error")
-                .defaultSuccessUrl("/home")
+                .defaultSuccessUrl("/discuss")
                 .and()
                 .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
@@ -63,6 +67,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
         web
                 .ignoring()
-                .antMatchers("/static/js/**","/resources/**", "/css/**", "/js/**","/static/**","/public/**","/smarteditor/**");
+                .antMatchers("/static/js/**", "/resources/**", "/css/**", "/js/**", "/static/**", "/public/**", "/smarteditor/**");
     }
 }
